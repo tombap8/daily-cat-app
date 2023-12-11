@@ -1,3 +1,4 @@
+import 'package:daily_cat_app/screens/detail_screen.dart';
 import 'package:flutter/material.dart';
 import '../models/cat.dart';
 
@@ -120,7 +121,10 @@ class _ListScreenState extends State<ListScreen> {
         itemCount: cats.length,
         itemBuilder: (_, index) => GestureDetector(
           //상세화면으로 이동
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => DetailScreen(cat: cats[index])));
+          },
           child: Image.asset(
             cats[index].link,
             fit: BoxFit.cover,
